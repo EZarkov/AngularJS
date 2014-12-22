@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Introduction to AngularJS</title>
+    <link  rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body ng-app="IntroToAngularApp">
+<div id="wrapper">
+    <section ng-controller="StudentPage">
+        <article>
+        <h2>Problem 1. Student Page</h2>
+        <p>
+            Name: {{ student.name }}
+        </p>
+        <p>Photo:</p>
+            <img ng-src="{{student.photo}}" alt="Student photo">
+        <p>Grade: {{student.grade}}</p>
+        <p>School: {{student.school}}</p>
+        <p>Teacher: {{student.teacher}}</p>
+        </article>
+    </section>
+    <section>
+        <article>
+            <h2>Problem 2. Bind Image Source to Text Box</h2>
+            <p><input type="text" ng-model="imgUrl" placeholder="Type img url"></p>
+            <p>Example: http://joomlaworks.net/images/demos/galleries/abstract/7.jpg</p>
+            <img  ng-src="{{imgUrl}}" >
+        </article>
+    </section>
+    <h2>Problem 3. Tiger</h2>
+    <section ng-controller="Tiger" ng-style="sectionStyle">
+
+        <article ng-style="inlineBlock">
+            <h2>Tiger</h2>
+            <p><span ng-style="bold">Name:</span> {{tiger.name}}</p>
+            <p><span ng-style="bold">Born:</span> {{tiger.born}}</p>
+            <p><span ng-style="bold">Bird date:</span> {{tiger.birthDate}}</p>
+            <p><span ng-style="bold">Live:</span> {{tiger.live}}</p>
+        </article>
+        <img src="" ng-src="{{imgUrl}}" alt="Object image" ng-style="img">
+    </section>
+
+
+
+</div>
+
+
+<script src="libs/angular.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/controller.js"></script>
+</body>
+</html>
