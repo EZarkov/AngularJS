@@ -1,0 +1,113 @@
+body, div, header, section, article, h1, h2, h3, a, p, span, ul, li{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper{
+    width: 960px;
+    margin: 0 auto;
+    background-color: #e2f0d9;
+}
+header, nav, section, footer{
+    background-color: #a9d18e;
+}
+
+
+.mainContent{
+    width: 48%;
+    margin: 20px 0;
+
+}
+#wrapper>header{
+
+    margin: 10px;
+    border: 1px solid #4c782f;
+}
+
+main article{
+    display: inline-block;
+    vertical-align: text-top;
+
+}
+.nav {
+    width: 25%;
+}
+
+.menu{
+
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid #4c782f;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.mainContent section{
+
+    margin-bottom: 10px ;
+    border: 1px solid #4c782f;
+    padding: 10px;
+}
+.mainContent section div{
+    display: inline-block;
+    vertical-align: text-top;
+}
+.imgContainer img{
+    width: 100px;
+    background: #c5e0b4;
+    border: 1px dotted #4c782f;
+
+}
+.mainContent section header h2{
+    display: inline-block;
+}
+.mainContent section header > span{
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+}
+.description{
+    padding-left: 10px;
+    width: 330px;
+}
+
+.description p{
+    display: inline-block;
+    width: 100%;
+}
+.description>p>span{
+    padding: 5px;
+    display: inline-block;
+    border: 1px dotted #4c782f;
+    background: #c5e0b4;
+    width: 100%;
+}
+.detail-description{
+    width: 320px;
+}
+.detail-description span{
+    padding: 5px;
+    float: right;
+    width: 80%;
+    display: inline-block;
+    border: 1px dotted #4c782f;
+    background: #c5e0b4;
+
+}
+.pages{
+    text-align: center;
+    background: none;
+}
+.pages span ,  ul, li{
+    display: inline-block;
+}
+
+.pages span , li{
+    margin: 2px;
+    padding: 5px;
+    border: 1px solid #4c782f;
+    background-color: #a9d18e;
+}

@@ -3,9 +3,28 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>AngularJS Practical Project</title>
-    <script src="libs/angular.js"></script>
-</head>
-<body>
 
+    <script src="scripts/libs/angular.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body ng-app="Ads">
+<div id="wrapper" ng-controller="Main">
+    <header ng-include src="templates.header"></header>
+    <main>
+        <article class="nav">
+    <nav  class="menu" ng-include src="templates.navigation"></nav>
+    <nav class="menu" ng-include src="templates.loginNav"></nav>
+        </article>
+    <article class="mainContent" ng-include src="templates.ads"></article>
+        <article class="nav">
+    <nav class="menu" ng-include src="templates.categories"></nav>
+    <nav class="menu" ng-include src="templates.towns"></nav>
+            </article>
+    </main>
+
+    <footer ng-include src="templates.footer"></footer>
+</div>
 </body>
 </html>
