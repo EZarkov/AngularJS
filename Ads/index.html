@@ -2,29 +2,20 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>AngularJS Practical Project</title>
+    <title>Ads Project</title>
 
-    <script src="scripts/libs/angular.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controller.js"></script>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
 </head>
-<body ng-app="Ads">
-<div id="wrapper" ng-controller="Main">
-    <header ng-include src="templates.header"></header>
-    <main>
-        <article class="nav">
-    <nav  class="menu" ng-include src="templates.navigation"></nav>
-    <nav class="menu" ng-include src="templates.loginNav"></nav>
-        </article>
-    <article class="mainContent" ng-include src="templates.ads"></article>
-        <article class="nav">
-    <nav class="menu" ng-include src="templates.categories"></nav>
-    <nav class="menu" ng-include src="templates.towns"></nav>
-            </article>
-    </main>
+<body>
+<header>
 
-    <footer ng-include src="templates.footer"></footer>
-</div>
+    <ng-view></ng-view>
+    <footer><p>&copy; 2015 by Software University Foundation, No Rights Reserved</p></footer>
+</header>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="scripts/app.js"></script>
 </body>
 </html>
