@@ -3,6 +3,9 @@
  */
 'use strict';
 
-app.controller('LoginCtrl',['$scope', function ($scope) {
-
+app.controller('LoginCtrl',['$scope', 'userData', function ($scope, userData) {
+$scope.login = function (user) {
+	console.log('login');
+	userData.login(user);
+}
 }]);

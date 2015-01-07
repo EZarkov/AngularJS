@@ -24,7 +24,7 @@
 
                 <div class="col-lg-10">
                     <input type="password" class="form-control" id="inputPasswordConfirm"
-                           placeholder="Confirm password">
+                           placeholder="Confirm password" ng-model="user.confirmPassword">
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
                     <label for="inputEmail" class="col-lg-2 control-label">Email</label>
 
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="user.username">
+                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="user.Email">
                     </div>
                 </div>
 
@@ -66,8 +66,8 @@
 
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button class="btn btn-default">Cancel</button>
-                        <button type="submit" class="btn btn-primary" ng-click="register">Submit</button>
+                        <button class="btn btn-default" ng-click="test()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" ng-click="register(user)">Submit</button>
                     </div>
                 </div>
         </fieldset>
