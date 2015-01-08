@@ -2,7 +2,7 @@
 
     <img src="./images/loading.gif" ng-hide="ready">
     <ul ng-cloak="">
-        <p ng-if="adsData.numItems==0">No Ads {{adsData.numItems}}</p>
+        <p ng-if="adsData.numItems==0">No Ads</p>
         <li ng-repeat="ad in adsData.ads">
             {{ad.title}}
         </li>
