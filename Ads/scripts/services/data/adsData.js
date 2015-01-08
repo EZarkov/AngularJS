@@ -7,9 +7,9 @@ app.factory('adsData', ['$resource', 'baseServiceUrl', function ($resource, base
 		update: {method: 'PUT'}
 	});
 
-	function getPublicAds() {
+	function getPublicAds(filterParams) {
 		//pagesize curent page
-		return resource.get();
+		return resource.get(filterParams);
 	}
 
 	function editAd(adId, ad) {

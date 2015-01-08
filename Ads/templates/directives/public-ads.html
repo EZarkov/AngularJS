@@ -1,10 +1,11 @@
 <div id="public-ads">
 
     <img src="./images/loading.gif" ng-hide="ready">
-    <ul ng-cloak>
+    <ul ng-cloak="">
+        <p ng-if="adsData.numItems==0">No Ads {{adsData.numItems}}</p>
         <li ng-repeat="ad in adsData.ads">
             {{ad.title}}
         </li>
     </ul>
-
+    {{adsData.numItems}}
 </div>
