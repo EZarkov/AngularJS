@@ -1,7 +1,6 @@
-/**
- * Created by evstati on 06.01.15.
- */
-'use strict';
-app.controller('HomeCtrl',['$scope', function ($scope) {
+app.controller('HomeCtrl',  ['$scope','authentication', function ($scope, authentication) {
 	$scope.pageTitle = 'Home';
-}])
+
+	$scope.isLoggedIn = authentication.isLoggedIn();
+
+}]);
