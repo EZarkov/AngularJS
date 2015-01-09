@@ -9,6 +9,7 @@ app.factory('adsData', ['$resource', 'baseServiceUrl', function ($resource, base
 
 	function getPublicAds(filterParams) {
 		//pagesize curent page
+
 		return resource.get(filterParams);
 	}
 

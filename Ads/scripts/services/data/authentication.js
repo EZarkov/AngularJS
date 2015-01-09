@@ -1,17 +1,17 @@
 /**
  * Created by Evstati on 7.1.2015 г..
  */
-app.factory('authentication', ['localStorageService', function (localStorageServiceProvider) {
+app.factory('authentication', ['localStorageService', function (localStorageService) {
 	var key = 'user';
 
 	function saveUserData(data) {
-		localStorageServiceProvider.set(key, data);
+		localStorageService.set(key, data);
 	}
 
 	function getUserData() {
 
 		//console.log( localStorageServiceProvider.get(key));
-		return localStorageServiceProvider.get(key);
+		return localStorageService.get(key);
 	}
 
 	function getHeaders() {
@@ -25,7 +25,9 @@ app.factory('authentication', ['localStorageService', function (localStorageServ
 	}
 
 	function removeUser() {
-		localStorage.removeItem(key);
+
+		return localStorageService.remove(key);
+
 	}
 
 	function isAdmin() {

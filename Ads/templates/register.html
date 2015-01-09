@@ -1,75 +1,115 @@
-<div class="container">
+<header>
+    <h1>
+        Ads - {{pageTitle}}
 
-    <form class="form-horizontal">
-        <fieldset>
-            <legend>Login</legend>
-            <div class="form-group">
-                <label for="inputUsername" class="col-lg-2 control-label">Username</label>
 
-                <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="user.username">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-
-                <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="user.password">
-                </div>
-            </div>
+    </h1>
+</header>
+<div id="wrapper">
+    <div class="row">
+        <div class="col-md-3">
+            <left-public-sidebar ng-if="!isLoggedIn"></left-public-sidebar>
+            <logged-in-sidebar ng-if="isLoggedIn"></logged-in-sidebar>
+        </div>
+        <div class="col-md-8">
 
             <div class="form-group">
-                <label for="inputPasswordConfirm" class="col-lg-2 control-label">Confirm password</label>
+            <div class="formHolder">
 
-                <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputPasswordConfirm"
-                           placeholder="Confirm password" ng-model="user.confirmPassword">
-                </div>
+                <form class="form-horizontal" name="registerForm">
+                    <fieldset>
+                        <legend>Register</legend>
+                        <div class="alert alert-success" ng-show="showSuccessAlert">
+                            <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> <strong>Done!</strong> {{successTextAlert}}</div>
+
+                        <div class="alert alert-danger" ng-show="showErrorAlert">
+                            <button type="button" class="close" data-ng-click="switchBool('showErrorAlert')">×</button> <strong>Error!</strong> {{errorTextAlert}}</div>
+                        <div class="form-group">
+                            <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+
+                            <div class="col-lg-5">
+                                <input type="text"   name="user" class="form-control" id="inputUsername" placeholder="Username" ng-model="user.username" required>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+
+                            <div class="col-lg-5">
+                                <input type="password"  name="password"class="form-control" id="inputPassword" placeholder="Password" ng-model="user.password" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+
+                            <label for="inputPasswordConfirm" class="col-lg-2 control-label" >Confirm password</label>
+
+                            <div class="col-lg-5">
+
+                                <input type="password" class="form-control" id="inputPasswordConfirm"
+                                       placeholder="Confirm password"  name="confirmPassword" ng-model="user.confirmPassword" required= ng-match="password">
+                                <div class="alert alert-danger" ng-show="user.password !== user.confirmPassword">
+                                    Password don`t mach!</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputName" class="col-lg-2 control-label">Name</label>
+
+                            <div class="col-lg-5">
+                                <input type="text"   name="name" class="form-control" id="inputName" placeholder="Name" ng-model="user.name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
+
+                            <div class="col-lg-5">
+                                <input type="text"  name="phone" class="form-control" ng-pattern="/^\d+$/" id="inputPhone" placeholder="Phone" ng-model="user.phone" required>
+                                <div class="alert alert-danger" ng-show="registerForm.phone.$error.pattern">
+                                    Not valid number!</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+
+                            <div class="col-lg-5">
+                                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="user.Email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputTown" class="col-lg-2 control-label">Towns</label>
+                            <div class="col-lg-5">
+                                <select class="form-control" name="town" id="inputTown" ng-options="town.id as town.name for town in towns" ng-model="user.townId" required>
+                                </select>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="col-lg-5 col-lg-offset-2">
+                                <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+                                <button type="submit" class="btn btn-primary"
+                                        ng-disabled="registerForm.user.$invalid
+                                        || user.password !== user.confirmPassword
+                                        || registerForm.user.$invalid
+                                        || registerForm.password.$invalid
+                                        || registerForm.confirmPassword.$invalid
+                                        || registerForm.name.$invalid
+                                        || registerForm.phone.$invalid
+                                        || registerForm.email.$invalid" ng-click="register(user)">Submit</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
+        </div>
 
-                <div class="form-group">
-                    <label for="inputName" class="col-lg-2 control-label">Name</label>
-
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="user.name">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
-
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputPhone" placeholder="Phone" ng-model="user.phone">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="user.Email">
-                    </div>
-                </div>
-
-            <div class="form-group">
-                <label for="inputTown" class="col-lg-2 control-label">Towns</label>
-                <div class="col-lg-10">
-                    <select class="form-control" id="inputTown" ng-options="town.id as town.name for town in towns" ng-model="user.townId">
-
-                    </select>
-
-                </div>
-            </div>
-
-
-
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <button class="btn btn-default" ng-click="test()">Cancel</button>
-                        <button type="submit" class="btn btn-primary" ng-click="register(user)">Submit</button>
-                    </div>
-                </div>
-        </fieldset>
-    </form>
+    </div>
 </div>

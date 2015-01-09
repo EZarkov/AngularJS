@@ -1,11 +1,52 @@
-<div id="public-ads">
+<div id="public-ads" >
 
     <img src="./images/loading.gif" ng-hide="ready">
     <ul ng-cloak="">
         <p ng-if="adsData.numItems==0">No Ads</p>
-        <li ng-repeat="ad in adsData.ads">
-            {{ad.title}}
+        <div>
+        <ul class="page-size-menu  pagination">
+            <li ng-if="true" ng-class="{disabled: true}"><a href>Ads per Page:</a></li>
+            <li ng-repeat="n in [1,2,3,4,5,6,7,8,9,10]"  ng-click="setAdsPerPage(n)"><a>{{n}}</a></li>
+        </ul>
+        </div>
+
+        <li ng-repeat="ad in adsData.ads" class="ad">
+            <div class="row ad-header">
+                <div class="col-sm-8"><h3> {{ad.title}}</h3></div>
+                <div class="col-sm-4"><span>{{ad.date|date: 'd-MMM-y'}}</span></div>
+            </div>
+            <div class="">
+            <div class="row">
+                <div class="col-sm-3 imgContainer" ><img src="" ng-src="{{ad.imageDataUrl}}"></div>
+                <div class="col-sm-8" >
+                    <div> {{ad.text}}</div>
+                    <div class="row ads-info">
+                        <div class="col-sm-3 right-side" >Name:</div>
+                        <div class="col-sm-9 ad-info" >{{ad.ownerName}}</div>
+                    </div>
+                    <div class="row ads-info">
+                        <div class="col-sm-3 right-side" >Email:</div>
+                        <div class="col-sm-9 ad-info" >{{ad.ownerEmail}}</div>
+                    </div>
+                    <div class="row ads-info">
+                        <div class="col-sm-3 right-side" >Phone:</div>
+                        <div class="col-sm-9 ad-info" >{{ad.ownerPhone}}</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
         </li>
     </ul>
-    {{adsData.numItems}}
+
+
+
+    <pagination
+            page=startPage""
+            ng-model="currentPage"
+            total-items="adsData.numItems"
+            items-per-page="pageSize"
+
+            ng-change="pageChanged()"
+            ></pagination>
 </div>

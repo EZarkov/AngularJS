@@ -19,10 +19,29 @@ var filterParams = {};
 		return filterParams;
 	}
 
+	function clearCategoryFilter() {
+		filterParams.categoryId = null;
+	}
+	function clearTownFilter() {
+		filterParams.townId = null;
+	}
+
+	function setPage(startpage) {
+			filterParams.startpage =startpage;
+	}
+
+	function setAdsPerPage(pageSize) {
+		filterParams.pagesize = pageSize;
+	}
+
 	return {
 		filterByCategory: filterByCategory,
 		filterByTown: filterByTown,
-		getFilterParams: getFilterParams
+		getFilterParams: getFilterParams,
+		clearTownFilter: clearTownFilter,
+		clearCategoryFilter:clearCategoryFilter,
+		setPage:setPage,
+		setAdsPerPage: setAdsPerPage
 	}
 
 });

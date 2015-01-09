@@ -16,4 +16,9 @@ app.controller('CategoriesCtrl', ['$scope', '$rootScope', 'categoriesData', 'fil
 		$rootScope.$broadcast('categoryClicked', category);
 
 	 };
+	$scope.allCategories  =  function allCategories(){
+		filter.clearCategoryFilter();
+		$rootScope.$broadcast('allCategories');
+
+	};
 }]);

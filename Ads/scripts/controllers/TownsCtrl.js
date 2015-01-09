@@ -14,4 +14,10 @@ app.controller('TownsCtrl', ['$scope', '$rootScope',  'townsData', 'filter', fun
 
 	};
 
+	$scope.allTowns  =  function allTowns(){
+		filter.clearTownFilter();
+		$rootScope.$broadcast('allTowns');
+
+	};
+
 }]);
