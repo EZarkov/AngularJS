@@ -3,6 +3,7 @@ app.controller('UserCtrl',  ['$scope','authentication', function ($scope, authen
 	//
 	$scope.isLoggedIn = authentication.isLoggedIn();
 
+
 	if($scope.isLoggedIn){
 		$scope.user = authentication.getUser().username;
 	}

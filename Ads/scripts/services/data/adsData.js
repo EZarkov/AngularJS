@@ -5,6 +5,7 @@ app.factory('adsData', ['$resource', 'baseServiceUrl', function ($resource, base
 
 	var resource = $resource(baseServiceUrl + 'ads:adId', {adId: '@id'}, {
 		update: {method: 'PUT'}
+
 	});
 
 	function getPublicAds(filterParams) {
@@ -13,7 +14,21 @@ app.factory('adsData', ['$resource', 'baseServiceUrl', function ($resource, base
 		return resource.get(filterParams);
 	}
 
+
+	function getUserAds(filterParams, headers){
+		var resource = 	$resource(baseServiceUrl + 'user/ads', {},  {
+			get: {
+				method: 'GET',
+				headers: headers
+			}
+		});
+
+		return resource.get(filterParams, headers);
+	}
+
 	function editAd(adId, ad) {
+
+
 		return resource.update({id: adId}, ad);
 	}
 
@@ -36,7 +51,8 @@ app.factory('adsData', ['$resource', 'baseServiceUrl', function ($resource, base
 		edit: editAd,
 		getAdById: getAdById,
 		add: addAd,
-		delete: deleteAd
+		delete: deleteAd,
+		getUserAds: getUserAds
 
 	}
 }]);

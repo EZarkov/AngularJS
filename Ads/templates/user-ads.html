@@ -1,0 +1,21 @@
+<header>
+    <h1>
+        Ads - {{pageTitle}}
+        <div ng-show="isLoggedIn" class="userLog"><span>{{user}}</span><a href="" ng-click="logout()">Logout</a> </div>
+    </h1>
+
+</header>
+<div id="wrapper">
+    <div class="row">
+        <div class="col-md-3">
+            <left-public-sidebar ng-if="!isLoggedIn"></left-public-sidebar>
+            <logged-in-sidebar ng-if="isLoggedIn"></logged-in-sidebar>
+            <my-ads-menu></my-ads-menu>
+
+        </div>
+        <div class="col-md-7">
+            <user-ads></user-ads>
+        </div>
+
+    </div>
+</div>

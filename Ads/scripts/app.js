@@ -23,7 +23,7 @@ app.config(['$routeProvider', 'localStorageServiceProvider', function ($routePro
 		controller:'UserCtrl'
 	})
 
-	$routeProvider.when('/user/home/ads', {
+	$routeProvider.when('/user/ads', {
 		templateUrl: './templates/user-ads.html',
 		controller:'UserAdsCtrl'
 	})

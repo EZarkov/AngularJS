@@ -154,3 +154,13 @@ color:white;
     background: lightcoral;
 
 }
+
+.status {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.status div {
+    padding-bottom: 10px;
+    background: palevioletred;
+}
