@@ -11,14 +11,17 @@
 <body>
 
 <div class="main">
+
     <ng-view></ng-view>
     <footer><p>&copy; 2015 by Software University Foundation, No Rights Reserved</p></footer>
 </div>
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-route/angular-route.js"></script>
+<script src="node_modules/angular-route/angular-route.js"></script>
 
 <script src="node_modules/angular-resource/angular-resource.js"></script>
 <script src="node_modules/angular-local-storage/dist/angular-local-storage.js"></script>
+<script src="node_modules/angular-growl-notifications/dist/angular-growl-notifications.js"></script>
 
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -34,6 +37,9 @@
 <script src="scripts/controllers/CategoriesCtrl.js"></script>
 <script src="scripts/controllers/UserCtrl.js"></script>
 <script src="scripts/controllers/UserAdsCtrl.js"></script>
+<script src="scripts/controllers/LogoutCtrl.js"></script>
+<script src="scripts/controllers/PublishAdCtrl.js"></script>
+<script src="scripts/controllers/AdminCtrl.js"></script>
 
 <script src="scripts/directives/left-public-sidebar.js"></script>
 <script src="scripts/directives/public-ads.js"></script>
@@ -41,6 +47,7 @@
 <script src="scripts/directives/logged-in-sidebar.js"></script>
 <script src="scripts/directives/categories.js"></script>
 <script src="scripts/directives/user-ads.js"></script>
+<script src="scripts/directives/user-ads-menu.js"></script>
 
 <script src="scripts/services/data/townsData.js"></script>
 <script src="scripts/services/data/userData.js"></script>

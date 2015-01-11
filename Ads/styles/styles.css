@@ -157,10 +157,30 @@ color:white;
 
 .status {
     padding-top: 20px;
-    text-align: center;
+    text-align: left;
 }
 
-.status div {
-    padding-bottom: 10px;
-    background: palevioletred;
+.status span {
+    padding: 10px;
+    background: #E0F5FF;
+    border: 1px solid #003580;
+
+    font-size: 18px;
+
+
+}
+
+.status div{
+    margin: 20px;
+}
+
+.thumb{
+    width:100px;
+    height:100px;
+    margin:5px;
+    float:left;
+}
+
+.uploader{
+    clear:both;
 }

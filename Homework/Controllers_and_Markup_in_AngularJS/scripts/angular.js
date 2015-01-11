@@ -22910,7 +22910,7 @@ var ngControllerDirective = [function() {
      </file>
      <file name="protractor.js" type="protractor">
        it('should check ng-click', function() {
-         expect(element(by.binding('count')).getText()).toMatch('0');
+         expect(element(by.binding('count')).getTextgetText()).toMatch('0');
          element(by.css('button')).click();
          expect(element(by.binding('count')).getText()).toMatch('1');
        });

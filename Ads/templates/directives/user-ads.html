@@ -11,7 +11,13 @@
             </ul>
         </div>
 
-        <li ng-repeat="ad in adsData.ads" class="ad">
+        <div class="alert alert-success" ng-show="showActivateAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showActivateAlert')">×</button> <strong>Done! {{successTextAlert}}</strong></div>
+
+        <div class="alert alert-danger" ng-show="showDeactivateAlert">
+            <button type="button" class="close" data-ng-click="switchBool('showActivateAlert')">×</button> <strong>Done! {{errorTextAlert}}</strong></div>
+
+        <li ng-repeat="ad in adsData.ads  | filter : adfilter" class="ad">
             <div class="row">
                 <div class="col-sm-9">
                     <div class="row ad-header">
@@ -37,9 +43,13 @@
                     </div>
                 </div>
                 <div class="col-sm-3 status">
-                    <h4>Status:</h4>
-                    <div class="status">{{ad.status}}</div>
-                    <button>Deactivate</button>
+                   <div> <h4>Status:</h4></div>x
+                    <div ><span>{{ad.status}}</span></div>
+
+
+
+                   <div><a> <button ng-if="ad.status=='Published'"  ng-click="deactivateAdClicked(ad.id)">Deactivate</button></a></div>
+                    <div>  <a> <button ng-if="ad.status=='Inactive'"  ng-click="publishAgeinAdClicked(ad.id)">Activate</button></a></div>
                 </div>
             </div>
         </li>

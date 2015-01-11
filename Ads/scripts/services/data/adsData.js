@@ -26,19 +26,62 @@ app.factory('adsData', ['$resource', 'baseServiceUrl', function ($resource, base
 		return resource.get(filterParams, headers);
 	}
 
-	function editAd(adId, ad) {
+	function editAd () {
 
-
-		return resource.update({id: adId}, ad);
 	}
+
+
+
+	function deactivateAd(adId, headers) {
+		var resource = 	$resource(baseServiceUrl + 'user/ads/deactivate/' +adId, {},  {
+			update: {
+				method: 'PUT',
+				headers: headers
+			}
+		});
+
+		return resource.update(headers);
+	}
+
+
+	function publishAgainAd(adId, headers) {
+		var resource = 	$resource(baseServiceUrl + 'user/ads/publishagain/' +adId, {},  {
+			update: {
+				method: 'PUT',
+				headers: headers
+			}
+		});
+
+		return resource.update(headers);
+
+
+	}
+
 
 	function getAdById(adId) {
 		return resource.get({id: adId});
 	}
 
-	function addAd(ad) {
-		return resource.save(ad);
+	function addAd(ad, headers) {
+
+		var resource = 	$resource(baseServiceUrl + 'user/ads/', {},  {
+			save: {
+				method: 'POST',
+				params:ad,
+				headers: headers
+			}
+		});
+
+
+
+
+		return resource.save();
 	}
+
+
+
+
+
 
 
 	function deleteAd(adId) {
@@ -46,13 +89,16 @@ app.factory('adsData', ['$resource', 'baseServiceUrl', function ($resource, base
 
 	}
 
+
 	return {
 		getPublicAds: getPublicAds,
 		edit: editAd,
 		getAdById: getAdById,
 		add: addAd,
 		delete: deleteAd,
-		getUserAds: getUserAds
+		getUserAds: getUserAds,
+		deactivateAd: deactivateAd,
+		publishAgainAd:publishAgainAd
 
 	}
 }]);

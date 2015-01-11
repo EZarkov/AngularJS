@@ -23,6 +23,7 @@ app.controller('LoginCtrl', ['$scope', '$location', '$timeout','userData', funct
 				$scope.successTextAlert = 'Succseful Login';
 
 
+
 				$timeout(function (){
 					$location.path('/user/home');
 					$scope.showSuccessAlert = false;

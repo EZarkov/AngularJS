@@ -1,0 +1,121 @@
+<header>
+    <h1>
+        Ads - {{pageTitle}}
+        <div ng-show="isLoggedIn" class="userLog"><span>{{user}}</span><a href="#/logout" ng-click="logout()">Logout</a> </div>
+    </h1>
+
+</header>
+<div id="wrapper">
+    <div class="row">
+        <div class="col-md-3">
+            <left-public-sidebar ng-if="!isLoggedIn"></left-public-sidebar>
+            <logged-in-sidebar ng-if="isLoggedIn"></logged-in-sidebar>
+
+
+        </div>
+        <div class="col-md-7">
+            <div class="form-group">
+                <div class="formHolder">
+
+                    <form class="form-horizontal" name="publishForm">
+                        <fieldset>
+                            <legend>Register</legend>
+                            <div class="alert alert-success" ng-show="showSuccessAlert">
+                                <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×
+                                </button>
+                                <strong>Done!</strong> {{successTextAlert}}
+                            </div>
+
+                            <div class="alert alert-danger" ng-show="showErrorAlert">
+                                <button type="button" class="close" data-ng-click="switchBool('showErrorAlert')">×
+                                </button>
+                                <strong>Error!</strong> {{errorTextAlert}}
+                            </div>
+                            <div class="form-group">
+                                <label for="inputTitle" class="col-lg-2 control-label">Title: </label>
+
+                                <div class="col-lg-5">
+                                    <input type="text" name="title" class="form-control" id="inputTitle"
+                                           placeholder="Title" ng-model="ad.title" required>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputText" class="col-lg-2 control-label">Text:</label>
+
+                                <div class="col-lg-5">
+                                    <textarea   name="inputText" class="form-control" id="inputText"
+                                           placeholder="Text" ng-model="ad.text" required>
+                                        </textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+
+                                <label for="inputImg" class="col-lg-2 control-label">Image</label>
+
+                                <div class="col-lg-5">
+
+
+
+
+
+                                    <input type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(this)"   class="form-control" id="inputImg"  placeholder="Img" name="img"
+                                           ng-model="ad.img"   />
+                                    <div ng-repeat="step in stepsModel">
+                                        <img class="thumb" ng-src="{{step}}" />
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="inputTown" class="col-lg-2 control-label">Category/admin/home</label>
+
+                                <div class="col-lg-5">
+                                    <select class="form-control" name="category" id="inputCategory"
+                                            ng-options="category.id as category.name for category in categorys" ng-model="ad.categoryId"
+                                            required>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputTown" class="col-lg-2 control-label">Towns</label>
+
+                                <div class="col-lg-5">
+                                    <select class="form-control" name="town" id="inputTown"
+                                            ng-options="town.id as town.name for town in towns" ng-model="ad.townId"
+                                            required>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-5 col-lg-offset-2">
+                                    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+                                    <button type="submit" class="btn btn-primary"
+                                            ng-disabled="publishForm.title.$invalid
+                                            ||publishForm.title.$invalid
+                                            ||publishForm.inputText.$invalid
+                                            ||publishForm.category.$invalid
+                                            ||publishForm.town.$invalid
+                                            " ng-click="publishAd(ad)">Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

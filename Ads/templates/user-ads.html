@@ -1,7 +1,7 @@
 <header>
     <h1>
         Ads - {{pageTitle}}
-        <div ng-show="isLoggedIn" class="userLog"><span>{{user}}</span><a href="" ng-click="logout()">Logout</a> </div>
+        <div ng-show="isLoggedIn" class="userLog"><span>{{user}}</span><a href="#/logout" ng-click="logout()">Logout</a> </div>
     </h1>
 
 </header>
@@ -10,7 +10,7 @@
         <div class="col-md-3">
             <left-public-sidebar ng-if="!isLoggedIn"></left-public-sidebar>
             <logged-in-sidebar ng-if="isLoggedIn"></logged-in-sidebar>
-            <my-ads-menu></my-ads-menu>
+            <user-ads-menu></user-ads-menu>
 
         </div>
         <div class="col-md-7">
